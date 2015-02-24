@@ -1,0 +1,40 @@
+<html>
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test1</title>
+  </head>
+ 
+  <body>
+    <p id="text"></p>
+    <i18n-message id="msg1">
+      <value>The protection \$arg1 of property rights $arg2 remains one of the most $arg3 contentious issues in $arg1 present-day Russia \$arg1.</value>
+      <meaning>meaning - Lorem ipsum dolor sit amet, consectetur adipisicing </meaning>
+      <arg id="arg1" example="test1">1</arg>
+      <arg id="arg2" example="test2">2</arg>
+      <arg id="arg3" example="test3">3</arg>
+      <desc>desc - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, neque quidem officiis sit perferendis</desc>
+    </i18n-message>
+    
+    <i18n-message id="msg2_with_param" locale="EN">
+      <value>2The protection \$arg1 of property rights $arg2 remains one of the most $arg3 contentious issues in $arg1 present-day Russia \$arg1.</value>
+      <meaning>2meaning - Lorem ipsum dolor sit amet, consectetur adipisicing </meaning>
+      <arg id="arg1" example="test1">{{value1}}</arg>
+      <arg id="arg2" example="test2">2</arg>
+      <arg id="arg3" example="test3">{{value2}}</arg>
+      <desc>2desc - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, neque quidem officiis sit perferendis</desc>
+    </i18n-message>
+    
+    <i18n-message id="msg3_without_args">
+      <value>Msg3 Only Text</value>
+      <meaning>Msg3 meaning - Lorem ipsum dolor sit amet, consectetur adipisicing </meaning>
+      <desc>3desc - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, neque quidem officiis sit perferendis</desc>
+    </i18n-message>
+    
+    <i18n-message id="msg4_without_args" locale="EN">
+      <value>Msg4 Only Text Engl text</value>
+      <meaning>Msg4 meaning - Lorem ipsum dolor sit amet, consectetur adipisicing </meaning>
+      <desc>4desc - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, neque quidem officiis sit perferendis</desc>
+    </i18n-message>
+  </body>
+</html>

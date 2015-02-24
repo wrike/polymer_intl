@@ -1,0 +1,18 @@
+name: polymer_intl
+version: 0.0.1
+author: Wrike Inc <support@team.wrike.com>
+description: This package provides Intl transformer for Polymer and generator ARB<=>Dart.
+homepage: https://github.com/wrike/polymer_intl
+environment:
+  sdk: '>=1.5.0 <2.0.0'
+dependencies:
+  barback: '>=0.15.2+4 <0.16.0'
+  code_transformers: '>=0.2.5 <0.3.0'
+  html5lib: '>=0.12.0 <0.13.0'
+  intl: '>=0.12.0+3 <0.13.0'
+  json: '>=0.10.0 <0.11.0'
+  path: '>=1.3.3 <2.0.0'
+  source_maps: '>=0.10.0+1 <0.11.0'
+  source_span: '>=1.0.3 <2.0.0'
+dev_dependencies:
+  unittest: any

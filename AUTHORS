@@ -1,0 +1,11 @@
+# Names should be added to this file with this pattern:
+#
+# For individuals:
+#   Name <email address>
+#
+# For organizations:
+#   Organization <fnmatch pattern>
+#
+Wrike Inc <*@team.wrike.com>
+Igor Demyanov <igor.demyanov@gmail.com>
+Timur Munykin <timur.munykin@team.wrike.com>
