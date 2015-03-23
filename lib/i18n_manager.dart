@@ -7,11 +7,11 @@ import 'package:html5lib/parser.dart' show parse;
 import 'i18n_element/i18n_element.dart';
 
 class I18nManager {
-  
+
   final List<BaseI18nElement> allI18n = [];
 
   I18nManager();
-  
+
   void reset(){
     allI18n.clear();
   }
@@ -22,10 +22,9 @@ class I18nManager {
     var i18nPluralBlock = _source_document.getElementsByTagName(PluralI18nElement.TAG);
     var i18nGenderBlock = _source_document.getElementsByTagName(GenderI18nElement.TAG);
     var i18nSelectBlock = _source_document.getElementsByTagName(SelectI18nElement.TAG);
-
     allI18n.addAll(i18nMessageBlocks.map((element) => new MessageI18nElement.fromElement(element)));
-    allI18n.addAll(i18nPluralBlock.map((element) => new PluralI18nElement.fromElement(element)));
     allI18n.addAll(i18nGenderBlock.map((element) => new GenderI18nElement.fromElement(element)));
+    allI18n.addAll(i18nPluralBlock.map((element) => new PluralI18nElement.fromElement(element)));
     allI18n.addAll(i18nSelectBlock.map((element) => new SelectI18nElement.fromElement(element)));
     return _source_document;
   }
@@ -36,7 +35,7 @@ class I18nManager {
 
   bool get isEmpty => allI18n.isEmpty;
   bool get isNotEmpty => allI18n.isNotEmpty;
-  
+
   String getDartMethods({bool wrapped: true}) {
     StringBuffer sb = new StringBuffer();
 

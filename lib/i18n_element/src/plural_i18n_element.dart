@@ -29,12 +29,15 @@ class PluralI18nElement extends BaseI18nElement {
   }
 
   @override
+  String get id => BaseI18nElement.strHashId(this._id + this.one + this.two + this.few + this.many  + this.other);
+
+  @override
   String generateDartMethod() {
     var jsonExample = JSON.encode(getExample());
     Iterable<String> arguments = args.map((item) => item.id);
     var result = '''
     ${generateDartMethodInterface()} => Intl.plural(
-        "$value",
+        $value,
         name: "$methodName",${locale!= null?"locale:'$locale',":""}
         zero: "$zero",
         one: "$one",

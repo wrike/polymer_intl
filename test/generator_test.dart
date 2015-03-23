@@ -16,8 +16,8 @@ void defineTests() {
       String srcHTML = readSampleFile("test_message1.html");
       var i18nIO = new I18nManager();
       i18nIO.parseHTML(srcHTML);
+      //MESSAGE
       var item = i18nIO.allI18n[0];
-      expect(item.id, "msg1");
       expect(item.value, r"The protection \$arg1 of property rights $arg2 remains one of the most $arg3 contentious issues in $arg1 present-day Russia \$arg1.");
       expect(item.meaning, "meaning - Lorem ipsum dolor sit amet, consectetur adipisicing ");
       expect(item.description, "desc - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, neque quidem officiis sit perferendis");
@@ -30,7 +30,6 @@ void defineTests() {
       expect(item.args[2].value, '"3"');
 
       item = i18nIO.allI18n[1];
-      expect(item.id, "msg2_with_param");
       expect(item.value, r"2The protection \$arg1 of property rights $arg2 remains one of the most $arg3 contentious issues in $arg1 present-day Russia \$arg1.");
       expect(item.meaning, "2meaning - Lorem ipsum dolor sit amet, consectetur adipisicing ");
       expect(item.description, "2desc - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, neque quidem officiis sit perferendis");
@@ -43,12 +42,46 @@ void defineTests() {
       expect(item.args[2].value, 'value2');
 
       item = i18nIO.allI18n[2];
-      expect(item.id, "msg3_without_args");
       expect(item.value, r"Msg3 Only Text");
       expect(item.meaning, "Msg3 meaning - Lorem ipsum dolor sit amet, consectetur adipisicing ");
       expect(item.description, "3desc - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, neque quidem officiis sit perferendis");
       expect(item.locale, null);
       expect(item.args.isEmpty, true);
+
+      //GENDER
+      item = i18nIO.allI18n[3];
+      expect(item.value, r"4The protection \$arg1 of property rights $arg2 remains one of the most \$arg3 contentious issues in $arg1 present-day Russia \$arg1.");
+      expect(item.meaning, "4meaning - Lorem ipsum dolor sit amet, consectetur adipisicing ");
+      expect(item.male, "male");
+      expect(item.female, "female");
+      expect(item.other, "other");
+      expect(item.description, "4desc - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, neque quidem officiis sit perferendis");
+      expect(item.locale, null);
+      expect(item.args[0].id, "arg1");
+      expect(item.args[0].example, "test1");
+      expect(item.args[0].value, 'value1');
+      expect(item.args[1].id, "arg2");
+      expect(item.args[1].example, "test2");
+      expect(item.args[1].value, '"2"');
+
+      //PLURAL
+      item = i18nIO.allI18n[4];
+      expect(item.value, '3');
+      expect(item.meaning, "5meaning - Lorem ipsum dolor sit amet, consectetur adipisicing ");
+      expect(item.zero, "zero");
+      expect(item.one, "one");
+      expect(item.two, "two");
+      expect(item.few, "few");
+      expect(item.many, "many");
+      expect(item.other, "other");
+      expect(item.description, "5desc - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, neque quidem officiis sit perferendis");
+      expect(item.locale, null);
+      expect(item.args[0].id, "arg1");
+      expect(item.args[0].example, "test1");
+      expect(item.args[0].value, 'value1');
+      expect(item.args[1].id, "arg2");
+      expect(item.args[1].example, "test2");
+      expect(item.args[1].value, '"2"');
     });
   });
   group('HTML', () {
@@ -59,15 +92,15 @@ void defineTests() {
       var dom = i18nIO.parseHTML(srcHTML);
       i18nIO.replaceAllMessage();
       expect(i18nIO.generateHTML(dom), expectedHTML);
-    });
+   });
   });
   group('Dart', () {
-      test('message', () {
-        String srcHTML = readSampleFile("test_message1.html");
-        String expectedDart = readSampleFile('test_message1_intl.dart');
-        var i18nIO = new I18nManager();
-        var dom = i18nIO.parseHTML(srcHTML);
-        expect(i18nIO.getDartMethods(wrapped:true), expectedDart);
-      });
+    test('message', () {
+      String srcHTML = readSampleFile("test_message1.html");
+      String expectedDart = readSampleFile('test_message1_intl.dart');
+      var i18nIO = new I18nManager();
+      var dom = i18nIO.parseHTML(srcHTML);
+      expect(i18nIO.getDartMethods(wrapped:true), expectedDart);
     });
+  });
 }
